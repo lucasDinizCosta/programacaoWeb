@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <title>Teste do JSON</title>
+</head>
+<body>
+    <!-- 
+        Documentos JSON
+        é um conjunto não-ordenado de dados armazenados em um par "nome": valor (campo),
+        que inicia e termina com chaves {}.
+
+        Todas os nomes-chave são englobados em aspas duplas, e são separados de seus valores por 
+        dois-pontos
+
+        Os pares(campos) são separados um do outro por vírgulas.
+
+        "nome": valor
+
+        Exemplo de documento JSON
+        {
+            "chave": "string",
+            "chave": 12,
+            "chave":[
+                "string", 21.50, "string"
+            ],
+            "chave": true,
+            "chave":{   // objeto dentro de objeto
+                "chave": "valor"
+            }
+        }
+
+        Aplicações do JSON:
+
+        O formato JSON encontra inúmeras aplicações, tais como:
+        * Usado para troca de dados(criação e consumo) usando APIs. Isso ocorre, por exemplo, entre
+        navegador (cliente) e servidor, ou entre servidores.
+        * Arquivos de configuração de programas e sistemas (.json)
+        * Persistência de dados padrão na Web atualmente
+        * Muitos formatos são derivados do JSON, como GeoJSON e BSON(Persistencia em banco de dados 
+        não relacionais como o mongoDB).
+
+        Características:
+
+        Os documentos JSON possuem suporte a diversos tipos de valores, como strings, números de ponto
+        flutuante, números inteiros, valores booleanos, nulo, arrays, objetos
+
+        O JSON suporta qualquer nível de hierarquia que seja necessário para o modelo de dados da 
+        aplicação onde é usado
+
+        O tipo de mídia (MIME) JSON é application/json, caso precise ser declarado
+
+        O JSON não suporta comentários.
+
+        Tipos de dados JSON
+
+        O JSON suporta quatro tipos de dados primitivos e dois tipos estruturados:
+        * String (0 ou mais caractereres Unicode)
+        * Número (inteiro, ponto flutuante, fração e notação científica)
+        * Booleano true / false
+        * Nulo (null)
+        * Array (lista ordenada de 0 ou mais valores)
+        * Objetos (lista não-ordenada de pares nome:valor, entre chaves{})
+
+        Exemplos númericos validos no JSON: -0.51 , 1/7, 250, 12.566, .142536, 6.022e+23
+
+        Caracteres de escape:
+        * \/ - Barra; * \\ - Barra invertida; * \" - Aspas duplas; * \uXXXX - Unicode UTF-16 XXXX;
+        * \b - Backspace; * \f - Form feed; * \t - Tabulação; * \n - Quebra de linha; \r - Retorno de carro
+
+        Serialização
+
+        Capturar uma estrutura de dados e transformar em um objeto JSON para enviar
+        Processo de captura de uma estrutura de dados (objeto) para que ela possa ser armazenada, transmitida
+        e posteriormente reconstituída.
+
+        Na prática, cria um texto JSON válido com os dados contidos na estrutura.
+        Métodos especiais podem realizar a serialização de uma estrutura que contenha dados, como o método
+        JSON.stringify
+
+        Desserialização
+
+        Processo inverso ao da serialização, permite converter JSON válido em valores e objetos que possam 
+        ser usados em um programa - ou seja, reconstitui a estrutura de dados.
+        Também chamado de parsing.
+        Métodos especiais realizam a desserialização de dados JSON, como o método JSON.parse
+
+        Tokens do JSON
+        { - Inicia Objeto; } - Finaliza objeto; [ - inicia Array; ] - Finaliza Array;
+        : - Separador nome/valor; , - Separador de valor e de pares
+
+        Exemplo de documento JSON
+        {
+            "fruta":"banana",
+            "preço":15.50,
+            "tipo":[
+                "prata",
+                "maçã",
+                "nanica",
+                "da terra", "ouro"
+            ],
+            "origem": "Brasil"
+        }
+
+        Sites para verificar se o arquivo JSON é valido:
+
+        https://jsonformatter.org/json/viewer
+
+        https://jsoneditoronline.org/
+    -->
+    <script>
+        // Colocar a crase permite que respeite as quebras de linhas ao armazenar na variavel
+        var frutas = `{ 
+            "fruta": "banana",
+            "preço": 15.50,
+            "tipo":[
+                "prata",
+                "maçã",
+                "nanica",
+                "da terra", 
+                "ouro"
+            ],
+            "origem": "Brasil",
+            "caractere": "\u3071"
+        }`;
+        console.log(frutas);
+        console.log(JSON.parse(frutas));        // Transforma em objeto JSON
+        console.log(JSON.parse(frutas).origem); // filtrando um único elemento
+        console.log(JSON.parse(frutas).caractere); // Unicode
+        /*var matriz = [
+            [1,2,3],
+            [4,5,6],
+            ["banana","abacaxi","pêra"]
+        ];
+        console.log(matriz);
+        console.log(JSON.stringify(matriz));        // Transforma em objeto
+        */
+    </script>
+</body>
+</html>
